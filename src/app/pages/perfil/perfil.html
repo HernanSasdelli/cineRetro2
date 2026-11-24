@@ -1,10 +1,10 @@
 @if (auth.perfil()) {
   <section class="tarjeta">
-    <h1>{{ auth.perfil().nombre }} {{ auth.perfil().apellido }}</h1>
-    <p><strong>Correo:</strong> {{ auth.perfil().email }}</p>
-    <p><strong>Nacimiento:</strong> {{ auth.perfil().fecha_nacimiento }}</p>
-    <p><strong>Color de ojos:</strong> {{ auth.perfil().color_ojos }}</p>
-    <p><strong>Vacaciones:</strong> {{ auth.perfil().dias_vacaciones }} días por año</p>
-    <p><strong>Rol:</strong> {{ auth.perfil().rol }}</p>
+    <h1>{{ auth.perfil()?.nombre }} {{ auth.perfil()?.apellido }}</h1>
+    <p><strong>Correo:</strong> {{ auth.perfil()?.email }}</p>
+    <p><strong>Nacimiento:</strong> {{ auth.perfil()?.fecha_nacimiento }}</p>
+    <p><strong>Color de ojos:</strong> {{ auth.perfil()?.color_ojos }}</p>
+    <p><strong>Vacaciones:</strong> {{ auth.perfil()?.dias_vacaciones }} días por año</p>
+    <p><strong>Rol:</strong> {{ auth.perfil()?.rol }}</p>
   </section>
 }
