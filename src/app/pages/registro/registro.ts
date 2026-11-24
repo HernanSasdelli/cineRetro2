@@ -39,6 +39,7 @@ export class Registro {
     this.error.set('');
     this.enviando.set(true);
     const v = this.form.value;
+    
     try {
       await this.auth.registro(v.correo!, v.clave!, {
         nombre: v.nombre!,
