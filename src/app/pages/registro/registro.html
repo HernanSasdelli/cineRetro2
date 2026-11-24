@@ -1,0 +1,112 @@
+<section class="tarjeta">
+  <h1>Crear cuenta</h1>
+
+  <form [formGroup]="form" (ngSubmit)="registrar()">
+    <div class="fila">
+      <label>
+        Nombre
+        <input formControlName="nombre">
+        @if (form.controls.nombre.touched && form.controls.nombre.hasError('required')) {
+          <small class="error">El nombre es obligatorio</small>
+        }
+      </label>
+      <label>
+        Apellido
+        <input formControlName="apellido">
+        @if (form.controls.apellido.touched && form.controls.apellido.hasError('required')) {
+          <small class="error">El apellido es obligatorio</small>
+        }
+      </label>
+    </div>
+
+    <label>
+      Correo
+      <input type="email" formControlName="correo">
+      @if (form.controls.correo.touched && form.controls.correo.hasError('required')) {
+        <small class="error">El correo es obligatorio</small>
+      }
+      @if (form.controls.correo.touched && form.controls.correo.hasError('email')) {
+        <small class="error">El correo no es válido</small>
+      }
+    </label>
+
+    <label>
+      Contraseña
+      <input type="password" formControlName="clave">
+      @if (form.controls.clave.touched && form.controls.clave.hasError('required')) {
+        <small class="error">La contraseña es obligatoria</small>
+      }
+      @if (form.controls.clave.touched && form.controls.clave.hasError('minlength')) {
+        <small class="error">Mínimo 6 caracteres</small>
+      }
+    </label>
+
+    <label>
+      Repetir contraseña
+      <input type="password" formControlName="clave2">
+      @if (form.controls.clave2.touched && form.controls.clave2.hasError('required')) {
+        <small class="error">Repetí la contraseña</small>
+      }
+      @if (form.controls.clave2.touched && form.controls.clave2.hasError('clavesDistintas')) {
+        <small class="error">Las contraseñas no coinciden</small>
+      }
+    </label>
+
+    <label>
+      Fecha de nacimiento
+      <input type="date" formControlName="fecha_nacimiento">
+      @if (form.controls.fecha_nacimiento.touched && form.controls.fecha_nacimiento.hasError('required')) {
+        <small class="error">La fecha de nacimiento es obligatoria</small>
+      }
+      @if (form.controls.fecha_nacimiento.touched && form.controls.fecha_nacimiento.hasError('fechaFutura')) {
+        <small class="error">La fecha no puede ser futura</small>
+      }
+    </label>
+
+    <div class="fila">
+      <label>
+        Tipo de sangre
+        
+        <select formControlName="tipo_sangre">
+          <option value="">Sin indicar</option>
+          @for (t of tiposSangre; track t) {
+            <option [value]="t">{{ t }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        Color de ojos
+        <select formControlName="color_ojos">
+          <option value="">Elegí</option>
+          @for (c of coloresOjos; track c) {
+            <option [value]="c">{{ c }}</option>
+          }
+        </select>
+        @if (form.controls.color_ojos.touched && form.controls.color_ojos.hasError('required')) {
+          <small class="error">Elegí un color de ojos</small>
+        }
+      </label>
+    </div>
+
+    <label>
+      Días de vacaciones por año
+      <input type="number" formControlName="dias_vacaciones">
+      @if (form.controls.dias_vacaciones.touched && form.controls.dias_vacaciones.hasError('required')) {
+        <small class="error">Los días de vacaciones son obligatorios</small>
+      }
+      @if (form.controls.dias_vacaciones.touched && (form.controls.dias_vacaciones.hasError('min') || form.controls.dias_vacaciones.hasError('max'))) {
+        <small class="error">Tiene que ser entre 0 y 365</small>
+      }
+    </label>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <button type="submit" class="btn" [disabled]="form.invalid || enviando()">
+      {{ enviando() ? 'Creando cuenta...' : 'Crear cuenta' }}
+    </button>
+  </form>
+
+  <p>¿Ya tenés cuenta? <a routerLink="/login">Ingresá</a></p>
+</section>

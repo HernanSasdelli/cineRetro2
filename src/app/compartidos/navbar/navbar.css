@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--oscuro);
+}
+
+.navbar__logo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  color: var(--fondo);
+}
+
+.navbar__logo span {
+  color: var(--naranja);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 16px;
+}
+
+.navbar__links a {
+  color: var(--fondo);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar__links a.activo {
+  color: var(--naranja);
+  border-bottom: 2px solid var(--naranja);
+}
+.navbar__usuario {
+  color: var(--naranja);
+}

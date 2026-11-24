@@ -1,0 +1,15 @@
+<h1>Cartelera</h1>
+
+@if (cargando()) {
+  <p class="nota">Cargando cartelera...</p>
+} @else if (error()) {
+  <p class="error">{{ error() }}</p>
+} @else {
+  <div class="grilla">
+    @for (p of peliculas(); track p.id) {
+      <app-tarjeta-pelicula [pelicula]="p" (elegida)="recibirPelicula($event)"></app-tarjeta-pelicula>
+    } @empty {
+      <p class="nota">No hay películas en cartelera.</p>
+    }
+  </div>
+}

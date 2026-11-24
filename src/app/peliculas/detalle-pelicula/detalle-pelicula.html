@@ -1,0 +1,22 @@
+<a routerLink="/cartelera" class="btn btn--linea volver">← Cartelera</a>
+
+@if (pelicula(); as p) {
+  <article class="detalle">
+    <img class="detalle__poster" [src]="p.imagen_url || '/placeholder.svg'"
+      [alt]="'Póster de ' + p.titulo" (error)="sinPoster($event)">
+    <div class="detalle__info">
+      <h1>{{ p.titulo }}</h1>
+      <p class="detalle__datos">
+        {{ p.duracion_min }} min
+        @if (p.restriccion_edad > 0) {
+          <span class="edad">+{{ p.restriccion_edad }}</span>
+        } @else {
+          <span class="edad">ATP</span>
+        }
+      </p>
+      <p class="detalle__sinopsis">{{ p.sinopsis }}</p>
+    </div>
+  </article>
+} @else {
+  <p class="nota">Cargando...</p>
+}

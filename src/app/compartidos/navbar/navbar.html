@@ -1,0 +1,12 @@
+<header class="navbar">
+  <span class="navbar__logo">Cine <span>Retro</span></span>
+  <nav class="navbar__links">
+    <a routerLink="/cartelera" routerLinkActive="activo">Cartelera</a>
+    @if (auth.perfil()) {
+      <a routerLink="/perfil" routerLinkActive="activo" class="navbar__usuario">{{ auth.perfil().nombre }}</a>
+      <a (click)="salir()">Salir</a>
+    } @else {
+      <a routerLink="/login" routerLinkActive="activo">Ingresar</a>
+    }
+  </nav>
+</header>

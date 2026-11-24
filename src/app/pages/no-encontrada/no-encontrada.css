@@ -1,0 +1,15 @@
+.no-encontrada {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.no-encontrada__numero {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: 6rem;
+  color: var(--naranja);
+}

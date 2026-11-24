@@ -1,0 +1,43 @@
+<section class="tarjeta">
+  <h1>Ingresar</h1>
+
+  <form [formGroup]="form" (ngSubmit)="ingresar()">
+    <label>
+      Correo
+      <input type="email" formControlName="correo">
+    </label>
+    @if (form.controls.correo.touched && form.controls.correo.hasError('required')) {
+      <small class="error">El correo es obligatorio</small>
+    }
+    @if (form.controls.correo.touched && form.controls.correo.hasError('email')) {
+      <small class="error">El correo no es válido</small>
+    }
+
+    <label>
+      Contraseña
+      <input type="password" formControlName="clave">
+    </label>
+    @if (form.controls.clave.touched && form.controls.clave.hasError('required')) {
+      <small class="error">La contraseña es obligatoria</small>
+    }
+    @if (form.controls.clave.touched && form.controls.clave.hasError('minlength')) {
+      <small class="error">Mínimo 6 caracteres</small>
+    }
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <button type="submit" class="btn" [disabled]="form.invalid || enviando()">
+      {{ enviando() ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+  </form>
+
+  <div class="acceso-rapido">
+    <span class="nota">Acceso rápido:</span>
+    <button type="button" class="btn btn--linea" (click)="accesoRapido('cliente@cine.com', 'cliente123')">Cliente</button>
+    <button type="button" class="btn btn--linea" (click)="accesoRapido('admin@cine.com', 'admin123')">Admin</button>
+  </div>
+
+  <p>¿No tenés cuenta? <a routerLink="/registro">Registrate</a></p>
+</section>

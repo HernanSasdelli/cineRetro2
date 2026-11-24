@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+/* colores y fuentes de toda la app, los componentes usan estas variables */
+:root {
+  --fondo: #f4ecd8;
+  --tarjeta: #fffaf0;
+  --texto: #1f1a17;
+  --oscuro: #1f1a17;
+  --bordo: #7a1f2b;
+  --naranja: #e07a2f;
+  --gris: #6b625a;
+  --error: #b3261e;
+  --exito: #2e7d32;
+
+  --fuente-titulo: 'Alfa Slab One', serif;
+  --fuente-texto: 'IBM Plex Mono', monospace;
+
+  --radio: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulo);
+  font-weight: normal;
+  color: var(--bordo);
+}
+
+a {
+  color: var(--bordo);
+}
+
+/* boton base */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid var(--bordo);
+  border-radius: var(--radio);
+  background: var(--bordo);
+  color: var(--tarjeta);
+  font-family: var(--fuente-texto);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn--linea {
+  background: transparent;
+  color: var(--bordo);
+}
+
+.btn--naranja {
+  background: var(--naranja);
+  border-color: var(--naranja);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* caja blanca para formularios y datos */
+.tarjeta {
+  max-width: 480px;
+  margin: 32px auto;
+  padding: 24px;
+  background: var(--tarjeta);
+  border: 2px solid var(--oscuro);
+  border-radius: var(--radio);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--gris);
+  border-radius: var(--radio);
+  font-family: var(--fuente-texto);
+}
+
+.error {
+  color: var(--error);
+}
+
+.nota {
+  color: var(--gris);
+}

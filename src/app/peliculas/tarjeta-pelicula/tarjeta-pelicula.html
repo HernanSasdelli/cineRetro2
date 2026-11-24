@@ -1,0 +1,17 @@
+<article class="tarjeta-peli">
+  <img class="tarjeta-peli__foto" [src]="pelicula().imagen_url || '/placeholder.svg'"
+    [alt]="'Póster de ' + pelicula().titulo" (error)="sinPoster($event)">
+  <div class="tarjeta-peli__cuerpo">
+    <h2 class="tarjeta-peli__titulo">{{ pelicula().titulo }}</h2>
+    <p class="tarjeta-peli__datos">
+      {{ pelicula().duracion_min }} min
+      @if (pelicula().restriccion_edad > 0) {
+        <span class="edad">+{{ pelicula().restriccion_edad }}</span>
+      } @else {
+        <span class="edad">ATP</span>
+      }
+    </p>
+    <p class="tarjeta-peli__sinopsis">{{ pelicula().sinopsis }}</p>
+    <button type="button" class="btn tarjeta-peli__boton" (click)="elegir()">Elegir</button>
+  </div>
+</article>

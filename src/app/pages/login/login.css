@@ -1,0 +1,21 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btn {
+  margin-top: 8px;
+}
+.acceso-rapido {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
